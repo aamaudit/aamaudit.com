@@ -177,41 +177,46 @@
 
 
     <!-- Features Start -->
+    <style>
+        .text-justify {
+            text-align: justify;
+        }
+    </style>
+    
     <div class="container-fluid py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 mb-0">Why Choose Us!</h1>
             <hr class="w-25 mx-auto bg-primary">
         </div>
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <div class="row g-5">
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-cubes fs-4 text-white"></i>
-                        </div>
-                        <h3>Best In Industry</h3>
-                        <p class="mb-0 text-justify">Recognized for excellence, we set the benchmark in auditing and financial consulting with industry-leading expertise and precision.</p>
+        
+        <div class="row g-5 d-flex align-items-center">
+            <!-- Left Side: Best in Industry & Professional Advisors -->
+            <div class="col-lg-5">
+                <div class="mb-4">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-cubes fs-4 text-white"></i>
                     </div>
+                    <h3>Best In Industry</h3>
+                    <p class="text-justify">Recognized for excellence, we set the benchmark in auditing and financial consulting with industry-leading expertise and precision.</p>
+                </div>
+    
+                <div>
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-user-tie fs-4 text-white"></i>
+                    </div>
+                    <h3>Professional Advisors</h3>
+                    <p class="text-justify">Our team of seasoned professionals delivers expert financial and auditing guidance, ensuring compliance and strategic growth.</p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="d-block bg-dark h-100 text-center">
-                    <img class="img-fluid" src="img/feature.jpg" alt="">
-                    <div class="p-4">
-                        <p class="text-white mb-4">We are committed to delivering exceptional auditing and financial advisory services tailored to your unique needs. With decades of experience, a team of professional experts, and a client-first approach, we ensure precision, integrity, and strategic growth for businesses worldwide. Trust us to guide your financial success with excellence and reliability.</p>
-                        <a href="" class="btn btn-light py-md-3 px-md-5 rounded-pill mb-2">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="row g-5">                   
-                    <div class="col-12">
-                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-user-tie fs-4 text-white"></i>
-                        </div>
-                        <h3>Professional Advisors</h3>
-                        <p class="mb-0">Our team of seasoned professionals delivers expert financial and auditing guidance, ensuring compliance and strategic growth.</p>
-                    </div>
+    
+            <!-- Right Side: Image, Box & Description -->
+            <div class="col-lg-7">
+                <div class="d-block bg-dark h-100 text-center p-4">
+                    <img class="img-fluid mb-3" src="img/feature.jpg" alt="Feature Image">
+                    <p class="text-white text-justify mb-4">
+                        We are committed to delivering exceptional auditing and financial advisory services tailored to your unique needs. With decades of experience, a team of professional experts, and a client-first approach, we ensure precision, integrity, and strategic growth for businesses worldwide. Trust us to guide your financial success with excellence and reliability.
+                    </p>
+                    <a href="" class="btn btn-light py-md-3 px-md-5 rounded-pill">Learn More</a>
                 </div>
             </div>
         </div>
