@@ -1,60 +1,56 @@
-(function ($) {
-    "use strict";
+'use strict';
 
-    // Sticky Navbar
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 40) {
-            $('.navbar').addClass('sticky-top');
-        } else {
-            $('.navbar').removeClass('sticky-top');
-        }
+// Sticky navbar shadow
+const header = document.getElementById('site-header');
+if (header) {
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
     });
-    
-    // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
-            } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
+}
+
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+    });
+}
+
+// Back to top
+const btt = document.getElementById('btt');
+if (btt) {
+    window.addEventListener('scroll', () => {
+        btt.classList.toggle('show', window.scrollY > 450);
+    });
+    btt.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Scroll fade-in via IntersectionObserver
+const fadeEls = document.querySelectorAll('.fade-up');
+if (fadeEls.length) {
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                obs.unobserve(e.target);
             }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
-    });
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
+        });
+    }, { threshold: 0.14 });
+    fadeEls.forEach(el => obs.observe(el));
+}
 
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // close all in same list
+        btn.closest('.faq-list').querySelectorAll('.faq-item.open').forEach(el => {
+            el.classList.remove('open');
+        });
+        if (!isOpen) item.classList.add('open');
     });
-    
-})(jQuery);
-
+});
