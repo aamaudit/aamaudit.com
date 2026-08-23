@@ -1,0 +1,28 @@
+{
+  "name": "aamaudit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aamaudit/aamaudit.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aamaudit/aamaudit.com/issues"
+  },
+  "homepage": "https://github.com/aamaudit/aamaudit.com#readme",
+  "dependencies": {
+    "framer-motion": "^13.1.0",
+    "motion": "^13.1.0"
+  }
+}

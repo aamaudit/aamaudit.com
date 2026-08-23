@@ -28,19 +28,16 @@ if (btt) {
     });
 }
 
-// Scroll fade-in via IntersectionObserver
-const fadeEls = document.querySelectorAll('.fade-up');
-if (fadeEls.length) {
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('in');
-                obs.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.14 });
-    fadeEls.forEach(el => obs.observe(el));
-}
+// Scroll fade-ins are handled by js/motion.js (Motion library, loaded via CDN).
+// Failsafe: if that module fails to load (e.g. CDN offline), reveal all content
+// via CSS so nothing is ever left invisible.
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        if (!window.__motionReady) {
+            document.querySelectorAll('.fade-up').forEach(el => el.classList.add('in'));
+        }
+    }, 1000);
+});
 
 // FAQ accordion
 document.querySelectorAll('.faq-btn').forEach(btn => {
